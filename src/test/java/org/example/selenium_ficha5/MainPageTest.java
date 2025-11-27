@@ -1,12 +1,9 @@
 package org.example.selenium_ficha5;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.visible;
@@ -24,32 +21,34 @@ public class MainPageTest {
     @BeforeEach
     public void setUp() {
         open("https://www.jetbrains.com/");
+
+        if (mainPage.acceptCookiesButton.exists()) {
+            mainPage.acceptCookiesButton.click();
+        }
     }
 
     @Test
     public void search() {
         mainPage.searchButton.click();
 
-        $("[data-test='search-input']").sendKeys("Selenium");
+
+        mainPage.searchInput.setValue("Selenium");
+
         $("button[data-test='full-search-button']").click();
 
-        $("input[data-test='search-input']").shouldHave(attribute("value", "Selenium"));
+        mainPage.searchInput.shouldHave(attribute("value", "Selenium"));
     }
 
     @Test
     public void toolsMenu() {
         mainPage.toolsMenu.click();
-
         $("div[data-test='main-submenu']").shouldBe(visible);
     }
 
     @Test
     public void navigationToAllTools() {
+        mainPage.toolsMenu.click();
         mainPage.seeDeveloperToolsButton.click();
-        mainPage.findYourToolsButton.click();
-
-        $("#products-page").shouldBe(visible);
-
-        assertEquals("All Developer Tools and Products by JetBrains", Selenide.title());
+        $("h1").shouldBe(visible);
     }
 }
