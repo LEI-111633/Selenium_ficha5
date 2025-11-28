@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","5649","toolsMenu()","","Thu Nov 27 22:49:33 WET 2025","failed","Thu Nov 27 22:49:38 WET 2025","","org.example.selenium_ficha5.MainPageTest","org.example.selenium_ficha5.MainPageTest","toolsMenu"
+"","12411","search()","","Thu Nov 27 22:49:20 WET 2025","failed","Thu Nov 27 22:49:33 WET 2025","","org.example.selenium_ficha5.MainPageTest","org.example.selenium_ficha5.MainPageTest","search"
+"","5943","navigationToAllTools()","","Thu Nov 27 22:49:38 WET 2025","failed","Thu Nov 27 22:49:44 WET 2025","","org.example.selenium_ficha5.MainPageTest","org.example.selenium_ficha5.MainPageTest","navigationToAllTools"
