@@ -10,10 +10,10 @@ public class MainPage {
     public SelenideElement acceptCookiesButton = $x("//button[contains(text(), 'Accept All') or contains(text(), 'Aceitar tudo')]");
 
     public SelenideElement searchButton = $("[data-test='site-header-search-action']");
-    public SelenideElement searchInput = $("[data-test='search-input']");
+    public SelenideElement searchInput = $("[data-test-id='search-input']");
 
-    public SelenideElement toolsMenu = $x("//button[@data-test='main-menu-item' and contains(., 'Developer Tools')]");
+    public SelenideElement toolsMenu = $x("//button[@data-test='main-menu-item-action' and contains(., 'Developer Tools')]");
 
-    public SelenideElement seeDeveloperToolsButton = $x("//a[@data-test='suggestion-action']");
-    public SelenideElement findYourToolsButton = $x("//a[@data-test='suggestion-action']");
+    public SelenideElement seeDeveloperToolsButton = $x("//a[@data-test='suggestion-link']");
+    public SelenideElement findYourToolsButton = $x("//a[@data-test='suggestion-link']");
 }

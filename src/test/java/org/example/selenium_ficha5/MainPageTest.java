@@ -5,8 +5,9 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 
-import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.visible;
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MainPageTest {
@@ -22,8 +23,14 @@ public class MainPageTest {
     public void setUp() {
         open("https://www.jetbrains.com/");
 
-        if (mainPage.acceptCookiesButton.exists()) {
-            mainPage.acceptCookiesButton.click();
+        try {
+            // Espera até 6s para aparecer e clica
+            mainPage.acceptCookiesButton.shouldBe(visible, Duration.ofSeconds(6)).click();
+
+            // Espera que a animação termine e o banner suma da frente
+            mainPage.acceptCookiesButton.should(disappear);
+        } catch (Throwable e) {
+            // Se não aparecer, seguimos em frente
         }
     }
 
@@ -31,6 +38,7 @@ public class MainPageTest {
     public void search() {
         mainPage.searchButton.click();
 
+        mainPage.searchInput.shouldBe(visible, Duration.ofSeconds(5)).click();
 
         mainPage.searchInput.setValue("Selenium");
 
@@ -42,7 +50,7 @@ public class MainPageTest {
     @Test
     public void toolsMenu() {
         mainPage.toolsMenu.click();
-        $("div[data-test='main-submenu']").shouldBe(visible);
+        mainPage.findYourToolsButton.shouldBe(visible);
     }
 
     @Test
