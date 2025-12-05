@@ -14,6 +14,7 @@ public class BookstoreAddPTest {
     @BeforeAll
     static void setupAll() {
         Configuration.browserSize = "1920x1080";
+        Configuration.timeout = 80000;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(true));
@@ -21,8 +22,9 @@ public class BookstoreAddPTest {
 
     @BeforeEach
     void openApplication() {
-        bookstorePage.open("https://vaadin.com/demos/bookstore");
+        bookstorePage.openPage("https://vaadin-bookstore-example.demo.vaadin.com/");
     }
+
 
     @Test
     @DisplayName("Adicionar um produto à lista")
@@ -30,7 +32,7 @@ public class BookstoreAddPTest {
         bookstorePage.clickAddProduct();
 
         addProductPage.fillForm(
-                "Livro",
+                "Livro Selenium Automático",
                 "20",
                 "Technology"
         );
