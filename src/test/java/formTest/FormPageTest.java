@@ -22,6 +22,10 @@ public class FormPageTest {
     @BeforeAll
     public static void setUpAll() {
         Configuration.browserSize = "1280x800";
+
+        // ADICIONE ESTA LINHA:
+        Configuration.holdBrowserOpen = true;
+
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 

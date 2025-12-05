@@ -1,11 +1,11 @@
-package org.example.selenium_ficha5.BookStore.tests;
+package BookStore.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 
-import org.example.selenium_ficha5.BookStore.pages.BookstorePage;
-import org.example.selenium_ficha5.BookStore.pages.AddProductPage;
+import BookStore.pages.BookstorePage;
+import BookStore.pages.AddProductPage;
 
 public class BookstoreAddPTest {
     private BookstorePage bookstorePage = new BookstorePage();
@@ -14,6 +14,7 @@ public class BookstoreAddPTest {
     @BeforeAll
     static void setupAll() {
         Configuration.browserSize = "1920x1080";
+        Configuration.timeout = 80000;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(true));
@@ -21,8 +22,9 @@ public class BookstoreAddPTest {
 
     @BeforeEach
     void openApplication() {
-        bookstorePage.open("https://vaadin.com/demos/bookstore");
+        bookstorePage.openPage("https://vaadin-bookstore-example.demo.vaadin.com/");
     }
+
 
     @Test
     @DisplayName("Adicionar um produto à lista")
@@ -30,7 +32,7 @@ public class BookstoreAddPTest {
         bookstorePage.clickAddProduct();
 
         addProductPage.fillForm(
-                "Livro",
+                "Livro Selenium Automático",
                 "20",
                 "Technology"
         );

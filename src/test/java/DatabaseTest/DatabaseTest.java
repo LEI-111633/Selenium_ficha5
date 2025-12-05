@@ -20,6 +20,9 @@ public class DatabaseTest {
     @BeforeAll
     static void setup() {
         Configuration.browserSize = "1920x1080";
+        // Adicione isto para ver o que acontece
+        Configuration.holdBrowserOpen = true;
+
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(true));
     }
