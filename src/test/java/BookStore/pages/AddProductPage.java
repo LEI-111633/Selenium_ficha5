@@ -1,4 +1,4 @@
-package org.example.selenium_ficha5.BookStore.pages;
+package BookStore.pages;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.*;

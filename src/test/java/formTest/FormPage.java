@@ -20,5 +20,6 @@ public class FormPage {
     public SelenideElement allowMarketingCheckbox = $$("vaadin-checkbox").findBy(text("Allow Marketing?"));
     public SelenideElement emailInput = $$("vaadin-email-field").findBy(text("Email"));
     public SelenideElement joinTheCommunityButton = $(byText("Join the community"));
-    public SelenideElement successMessage = $("vaadin-notification-card[theme~='success']");
+    public SelenideElement successMessage = $(shadowCss("vaadin-notification-card[theme~='success']", "vaadin-notification-container"));
+
 }

@@ -16,6 +16,9 @@ public class SamplerTest {
         Configuration.browserSize = "1280x800";
         Configuration.timeout = 10000;
 
+        // Adicione esta linha para manter o browser aberto
+        Configuration.holdBrowserOpen = true;
+
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(true));

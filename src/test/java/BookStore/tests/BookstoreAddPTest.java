@@ -1,11 +1,11 @@
-package org.example.selenium_ficha5.BookStore.tests;
+package BookStore.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 
-import org.example.selenium_ficha5.BookStore.pages.BookstorePage;
-import org.example.selenium_ficha5.BookStore.pages.AddProductPage;
+import BookStore.pages.BookstorePage;
+import BookStore.pages.AddProductPage;
 
 public class BookstoreAddPTest {
     private BookstorePage bookstorePage = new BookstorePage();
